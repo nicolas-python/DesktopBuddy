@@ -1,0 +1,42 @@
+Projektstruktur
+
+README.md
+project                        #Godot-Projekt
+    -project.godot             #Zentrale Projekteinstellungen
+    -scenes                     #Szenen der Anwendung
+        -main.tscn                #Hauptszene – Einstiegspunkt der Anwendung
+
+scripts                    #GDScript-Dateien – Programmcode
+    -main.gd                  #Hauptlogik der Anwendung
+    -character.gd             #Bewegung und Verhalten des Begleiters
+    -input_handler.gd         #Verarbeitung von Benutzereingaben
+
+assets                   #Grafiken und andere Ressourcen
+    -models                  #3D-Modelle aus Blender
+    -textures               #Texturen und Materialien
+    -animations              #Animationen des Charakters
+
+blender                         #Blender-Projekte und 3D-Arbeiten
+    -character.blend             #ursprüngliches 3D-Modell
+
+docs
+    -Cheatsheet.md
+
+## Technologien
+Blender:
+    - Kostenlose 3D-Software
+    - Erstellung und Bearbeitung von 3D-Modellen
+    - Erstellung von Animationen und Materialien
+    - Export der Modelle für Godot
+
+Godot Engine:
+    - Game Engine zur Entwicklung interaktiver Anwendungen
+    - Darstellung des 3D-Charakters
+    - Verwaltung von Szenen und Animationen
+    - Fenstersteuerung und Benutzerinteraktionen
+    - Export als eigenständige Windows-Anwendung
+
+GDScript:
+    - Programmiersprache für Godot
+    - Ähnelt in der Schreibweise Python
+    - Steuert Bewegungen, Funktionen und Reaktionen
