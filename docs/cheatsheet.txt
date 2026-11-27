@@ -54,3 +54,20 @@ project_folder = Path(__file__).parent
     - Path(...)	Macht aus einem Pfad ein Path-Objekt
     - __file__	Speicherort der aktuellen Python-Datei
     - .parent	Übergeordneter Ordner
+
+
+
+DesktopBuddy.exe :
+
+extends ColorRect		#Verwendet blauen Punkt als Grundlage für das Script
+
+var is_dragging: bool = false				#speichert, ob der Buddy gerade gezogen wird (true = ja, false = nein)
+
+func _gui_input(event: InputEvent) -> void:			#-> was die funktion zurück gibt void = keine rückgabe
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			is_dragging = event.pressed
+
+	#Bewegt den Buddy mit der Maus
+	if event is InputEventMouseMotion and is_dragging:
+		position += event.relative			#position = Position relativ zum übergeordneten Objekt; relative = relative Mausbewegung
