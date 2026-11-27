@@ -44,3 +44,13 @@ GDScript:
 
 ## Godot Engine
 ColorRect : in Rechteck, dessen Farbe und Größe man selbst bestimmen kan
+
+Transform -> Size = größe ändern
+
+
+
+
+project_folder = Path(__file__).parent
+    - Path(...)	Macht aus einem Pfad ein Path-Objekt
+    - __file__	Speicherort der aktuellen Python-Datei
+    - .parent	Übergeordneter Ordner
