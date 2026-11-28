@@ -61,13 +61,13 @@ DesktopBuddy.exe :
 
 extends ColorRect		#Verwendet blauen Punkt als Grundlage für das Script
 
-var is_dragging: bool = false				#speichert, ob der Buddy gerade gezogen wird (true = ja, false = nein)
+func _gui_input(input_event: InputEvent) -> void:			#-> was die funktion zurück gibt void = keine rückgabe
+	if input_event is InputEventMouseButton:
+		if input_event.button_index == MOUSE_BUTTON_LEFT and input_event.pressed:
+			DisplayServer.window_start_drag()		# Übergibt das Verschieben des Fensters an das Betriebssystem(Windows)
 
-func _gui_input(event: InputEvent) -> void:			#-> was die funktion zurück gibt void = keine rückgabe
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			is_dragging = event.pressed
-
-	#Bewegt den Buddy mit der Maus
-	if event is InputEventMouseMotion and is_dragging:
-		position += event.relative			#position = Position relativ zum übergeordneten Objekt; relative = relative Mausbewegung
+func _ready() -> void:
+	get_window().mode = Window.MODE_WINDOWED
+	get_window().min_size = Vector2i(20, 20)  # Kleinste erlaubte Fenstergröße
+	get_window().size = Vector2i(20, 20)      # Fenstergröße auf 20 × 20 Pixel
+	position = Vector2.ZERO                   # Blauen Punkt auf X = 0 und Y = 0 setzen
