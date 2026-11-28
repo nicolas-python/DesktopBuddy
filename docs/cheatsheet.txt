@@ -59,15 +59,16 @@ project_folder = Path(__file__).parent
 
 DesktopBuddy.exe :
 
-extends ColorRect		#Verwendet blauen Punkt als Grundlage für das Script
+extends Sprite2D		#Verwendet paperclip_buddy.png als Grundlage für das Script
 
-func _gui_input(input_event: InputEvent) -> void:			#-> was die funktion zurück gibt void = keine rückgabe
+func _input(input_event: InputEvent) -> void:			#-> was die funktion zurück gibt void = keine rückgabe
 	if input_event is InputEventMouseButton:
 		if input_event.button_index == MOUSE_BUTTON_LEFT and input_event.pressed:
-			DisplayServer.window_start_drag()		# Übergibt das Verschieben des Fensters an das Betriebssystem(Windows)
+			if get_rect().has_point(to_local(input_event.position)):
+				DisplayServer.window_start_drag()		#Übergibt das Verschieben des Fensters an Windows
 
 func _ready() -> void:
 	get_window().mode = Window.MODE_WINDOWED
-	get_window().min_size = Vector2i(20, 20)  # Kleinste erlaubte Fenstergröße
-	get_window().size = Vector2i(20, 20)      # Fenstergröße auf 20 × 20 Pixel
-	position = Vector2.ZERO                   # Blauen Punkt auf X = 0 und Y = 0 setzen
+	get_window().min_size = Vector2i(256, 256)  #Kleinste erlaubte Fenstergröße
+	get_window().size = Vector2i(256, 256)      #Fenstergröße auf 20 × 20 Pixel
+	position = Vector2(128, 128)

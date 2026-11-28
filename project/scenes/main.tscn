@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhtllwe5mjfr5"]
 
 [ext_resource type="Script" uid="uid://dide5gspfdqcc" path="res://scenes/color_rect.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://bhqc0t8mkj284" path="res://assets/textures/paperclip_buddy.png" id="2_0wfyh"]
 
 [node name="Node2D" type="Node2D" unique_id=431213520]
 
@@ -10,4 +11,9 @@ offset_top = 314.0
 offset_right = 586.0
 offset_bottom = 334.0
 color = Color(0.06666667, 0, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953561600]
+position = Vector2(128, 128)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_0wfyh")
 script = ExtResource("1_o5qli")
